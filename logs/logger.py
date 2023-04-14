@@ -42,8 +42,6 @@ try:
     console_handler.setLevel(logging.WARNING)
     if "--info" in sys.argv:
         console_handler.setLevel(logging.INFO)
-    if "--debug" in sys.argv:
-        console_handler.setLevel(logging.DEBUG)
     console_handler.setFormatter(ConsoleFormatter())
 
     logger.addHandler(file_handler)
