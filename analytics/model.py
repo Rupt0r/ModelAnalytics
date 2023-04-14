@@ -1,11 +1,10 @@
+import numpy as np
 import pandas as pd
 import tensorflow as tf
-import numpy as np
+from keras.layers import Dense, Dropout
+from keras.optimizers import Adadelta, Adagrad, Adam, Adamax, Ftrl, Nadam, RMSprop, SGD
 
 from analytics.dataframe import DF
-from keras.layers import Dense, Dropout
-from keras.optimizers import SGD, Adam, RMSprop, Adadelta, Adagrad, Adamax, Nadam, Ftrl
-
 from check.checkparams import CheckParams
 from logs.logger import logger
 

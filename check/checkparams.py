@@ -1,7 +1,6 @@
 import pandas as pd
 
 from check.Parsing.parsing import ActivationFunctions, LossesFunctions, Optimizers
-from logs.logger import logger
 
 
 class CheckParams:

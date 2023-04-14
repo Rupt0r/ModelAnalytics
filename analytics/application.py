@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from analytics.model import Model
 from analytics.chart import Chart
+from analytics.model import Model
 from logs.logger import logger
 
 

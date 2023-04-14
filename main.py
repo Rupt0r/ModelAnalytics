@@ -1,8 +1,8 @@
 import sys
 
 from analytics.application import Application
-from tests import test
 from logs.logger import logger
+from tests import test
 
 
 def main():
