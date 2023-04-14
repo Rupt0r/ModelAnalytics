@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+from logs.logger import logger
+
 
 class Soup:
     """
@@ -103,6 +105,7 @@ class LossesFunctions(Base):
 
         :return: None
         """
+        logger.info('Parsing regression_losses')
         for under_soup in self.soup.select('pre'):
             name = under_soup.text.split('(')[0]
             if name.startswith('tf.'):
@@ -144,6 +147,7 @@ class ActivationFunctions(Base):
 
         :return: None
         """
+        logger.info('Parsing activations')
         for under_soup in self.soup.select('h3'):
             name = under_soup.select_one('code').text
             self.array.append(name)
@@ -171,6 +175,7 @@ class Optimizers(Base):
 
         :return: None
         """
+        logger.info('Parsing optimizers')
         for under_soup in self.soup.select('ul')[:1]:
             for block in under_soup.select('li'):
                 self.array.append(block.text)

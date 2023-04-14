@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 from analytics.model import Model
 from analytics.chart import Chart
+from logs.logger import logger
 
 
 @dataclass
@@ -78,4 +79,5 @@ class Application:
         :param: dict: Новые настройки модели.
         :return: None
         """
+        logger.info('Data has been successfully updated.')
         self.__init__(settings)

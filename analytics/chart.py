@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from check.checkparams import CheckParams
+from logs.logger import logger
 
 
 class Chart:
@@ -24,6 +25,7 @@ class Chart:
 
         :return: None
         """
+        logger.info('Create graph.')
         plt.plot(self.history['loss'], label='loss')
         plt.plot(self.history['val_loss'], label='val_loss')
         plt.xticks(np.array(self.history['epoch'])[::10])

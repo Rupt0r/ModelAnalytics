@@ -7,6 +7,7 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import SGD, Adam, RMSprop, Adadelta, Adagrad, Adamax, Nadam, Ftrl
 
 from check.checkparams import CheckParams
+from logs.logger import logger
 
 
 class Model:
@@ -36,6 +37,7 @@ class Model:
         :param drop_kof: float: Коэффициент дропа нейронов на слое
         :return: None
         """
+        logger.info('Model generation.')
         CheckParams().model_generator(layers, data_layers, drop_kof)
         self.normalizer = tf.keras.layers.experimental.preprocessing.Normalization()
         self.normalizer.adapt(np.array(self.df.X))
@@ -58,6 +60,7 @@ class Model:
         :param loss: str: Функция ошибки.
         :return: None
         """
+        logger.info('Model Training.')
         CheckParams().learn(optimizer, learning_rate, epochs, loss)
         self.my_model.compile(optimizer=self.optimizers[optimizer](learning_rate=learning_rate), loss=loss)
         self.history = self.my_model.fit(self.df.X, self.df.y, epochs=epochs, verbose=0, validation_split=0.2)

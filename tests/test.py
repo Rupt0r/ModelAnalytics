@@ -89,3 +89,7 @@ class Tests(unittest.TestCase):
         :return: None
         """
         self.assertRaises(RuntimeError, CheckParams().init, pd.DataFrame(columns=['loss', 'val_loss']))
+
+
+def run():
+    unittest.main()

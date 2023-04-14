@@ -1,6 +1,7 @@
 import pandas as pd
 
 from check.checkparams import CheckParams
+from logs.logger import logger
 
 
 class DF:
@@ -25,6 +26,7 @@ class DF:
 
         :return: None
         """
+        logger.info('Upgrade data in DataFrame')
         self.df = self.df.dropna()
         for column in ['dist', 'kitsp']:
             self.df[column] = self.df[column].apply(lambda x: float(str(x).replace(',', '.')))
@@ -53,6 +55,7 @@ class DF:
 
         :return: pd.DataFrame
         """
+        logger.info('Create a new DataFrame.')
         if filling is None:
             filling = {}
         CheckParams().filling(filling=filling)
