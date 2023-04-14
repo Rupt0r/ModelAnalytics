@@ -24,7 +24,7 @@ class Tests(unittest.TestCase):
 
         :return: None
         """
-        self.assertRaises(FileNotFoundError, CheckParams().csv, filename='data.csv')
+        self.assertRaises(FileNotFoundError, CheckParams().csv, filename='0.csv')
 
     def test_filling(self):
         """
